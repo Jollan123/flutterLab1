@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lab1/widgets/task_list.dart';
 import 'package:lab1/pages/add_view.dart';
+import 'package:lab1/model/types.dart';
+import 'package:provider/provider.dart';
+import 'package:lab1/model/task_handler.dart';
 
 
 
@@ -35,7 +38,23 @@ class MainView extends StatelessWidget {
 }
 
 Widget _filterMenu(context) {
-   return Placeholder();
+  var taskHandler = Provider.of<TaskHandler>(context, listen: false);
+  return PopupMenuButton<FilterType>(
+         initialValue: taskHandler.mode,
+         onSelected: (FilterType item) {
+             taskHandler.setMode(item); 
+ },
+      
+      itemBuilder: (BuildContext context) => [
+         const PopupMenuItem<FilterType>(
+            value: FilterType.all, child: Text('All')),
+         const PopupMenuItem<FilterType>(
+            value: FilterType.done, child: Text('Done')),
+         const PopupMenuItem<FilterType>(
+            value: FilterType.undone, child: Text('Undone')),
+      ],
+   );
 }
+
 
 }
