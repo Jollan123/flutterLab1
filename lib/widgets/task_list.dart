@@ -11,14 +11,23 @@ Widget build(BuildContext context) {
 
    var taskHandler = context.watch<TaskHandler>();
    var tasks = taskHandler.testTasks();
-return ListView(children: [
- for (final task in tasks) 
-    ListTile(
-      leading: StatusIcon(task),
-      title: Text(task.title),
-      onTap: (){
-         taskHandler.toggleTask(task);
-     },),
-]);
-}
+      return ListView(
+      children: [
+        for (final task in tasks)
+          ListTile(
+            leading: StatusIcon(task),
+            title: Text(task.title),
+            onTap: () {
+              taskHandler.toggleTask(task);
+            },
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                taskHandler.deleteTask(task);
+              },
+            ),
+          ),
+      ],
+    );
+  }
 }
