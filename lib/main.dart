@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab1/pages/main_view.dart';
+import 'package:provider/provider.dart';
+import 'package:lab1/model/task_handler.dart';
 
 void main() {
    runApp(ChangeNotifierProvider(

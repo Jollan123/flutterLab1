@@ -11,13 +11,6 @@ class MainView extends StatelessWidget {
              title: const Text('Things todo'),
              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           ),
-    body: TaskList(
-    children: [
-     ListTile(title: Text('DAT216/TIG091')),
-     ListTile(title: Text('Lab1 Todos')),
-     ListTile(title: Text('En rad till')),
-      ],
-    ),
-  );
+    body: TaskList());
 }
 }

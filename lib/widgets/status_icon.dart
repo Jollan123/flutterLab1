@@ -11,5 +11,7 @@ class StatusIcon extends StatelessWidget {
 
     return Icon(completed ? Icons.check_circle : Icons.radio_button_unchecked,
         color: completed ? Colors.green : null);
+
+        
   }
 }
